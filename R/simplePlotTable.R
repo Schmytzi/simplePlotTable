@@ -15,7 +15,8 @@ prepare_data <- function(data) {
   long_data$size <- 12 / ggplot2::.pt
   long_data$hjust <- .5
   long_data$vjust <- .5
-  list(data=long_data, cols=cols, rows=rows)
+  result <- list(data=long_data, cols=cols, rows=rows)
+  class(result) <- "SimplePlotTable"
 }
 
 create_geom <- function(long_data){
