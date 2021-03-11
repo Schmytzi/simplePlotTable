@@ -8,4 +8,5 @@ prepare_data <- function(data) {
   long_data <- tidyr::pivot_longer(data, !row, names_to="col", values_to="text")
   result <- list(data=long_data, cols=cols, rows=rows)
   class(result) <- "SimplePlotTable"
+  result
 }
