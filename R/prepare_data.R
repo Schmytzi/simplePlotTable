@@ -5,7 +5,7 @@ prepare_data <- function(data) {
   rownames(data) <- 1:nrow(data)
   colnames(data) <- 1:ncol(data)
   data$row <- 1:nrow(data)
-  long_data <- tidyr::pivot_longer(data, !y, names_to="col", values_to="text")
+  long_data <- tidyr::pivot_longer(data, !row, names_to="col", values_to="text")
   result <- list(data=long_data, cols=cols, rows=rows)
   class(result) <- "SimplePlotTable"
 }
