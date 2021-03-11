@@ -2,7 +2,7 @@ prepare_data <- function(data) {
   stopifnot(is.data.frame(data))
   rows <- rownames(data)
   cols <- colnames(data)
-  rownames(data) <- 1:nrow(data)
+  rownames(data) <- nrow(data):1
   colnames(data) <- 1:ncol(data)
   data$y <- 1:nrow(data)
   long_data <- tidyr::pivot_longer(data, !y, names_to="x", values_to="text")
