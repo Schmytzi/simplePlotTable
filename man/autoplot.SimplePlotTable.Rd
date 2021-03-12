@@ -8,10 +8,6 @@
 }
 \arguments{
 \item{table}{The SimplePlotTable to plot}
-
-\item{col_headers}{Logical indicating whether column headers should be shown (default: TRUE)}
-
-\item{row_headers}{Logical indicating whether row headers should be shown (default: TRUE)}
 }
 \value{
 A ggplot object containing the table
@@ -26,12 +22,6 @@ The column and row headers are drawn as labels on the x and y axis, respectively
 You can change their appearance using \code{\link[ggplot2:theme]{ggplot2::theme()}}.
 }
 \examples{
-# Plot with all headers
-create_plot(table)
-
-# Plot column headers only
-create_plot(table, T, F)
-
-# Plot without headers
-create_plot(table, F, F)
+table <- new_SimplePlotTable(mtcars)
+autoplot(table)
 }

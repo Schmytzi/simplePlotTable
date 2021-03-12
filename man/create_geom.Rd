@@ -4,17 +4,14 @@
 \alias{create_geom}
 \title{Create a table's text geom}
 \usage{
-create_geom(long_data)
+create_geom(table)
 }
 \arguments{
-\item{long_data}{The data component of the table object}
+\item{table}{The table object}
 }
 \value{
 A ggplot text geom representing the data
 }
 \description{
 Create a table's text geom
-}
-\examples{
-create_geom(table$data)
 }

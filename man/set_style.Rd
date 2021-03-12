@@ -27,6 +27,9 @@ The cells to be changed are identified by \code{rows} and \code{cols}.
 Every cell that is in any of the rows and any of the columns specified is changed.
 }
 \examples{
+
+table <- new_SimplePlotTable(mtcars)
+
 # Make all cells blue
 table <- set_style(table, col="blue")
 

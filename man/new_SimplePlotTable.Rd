@@ -23,8 +23,3 @@ A new SimplePlotTaböe
 \description{
 Construct a new SimplePlotTable
 }
-\examples{
-new_SimplePlotTable(mtcars)
-
-new_SimplePlotTable(mtcars[, c("mpg", "cyl)], col_names=c("Miles/gallon", "Cylinders))
-}

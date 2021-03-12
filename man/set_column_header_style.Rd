@@ -18,9 +18,12 @@ The modified table
 Set the appearance of the column headers
 }
 \examples{
+
+table <- new_SimplePlotTable(mtcars)
+
 # Print column headers in bold
 table <- set_column_header_style(table, face="bold")
 
 # Set headers to flush right
-table <- set_column_header-style(table, hjust=1)
+table <- set_column_header_style(table, hjust=1)
 }

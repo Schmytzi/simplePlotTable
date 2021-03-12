@@ -18,9 +18,11 @@ The modified table
 Set the appearance of the row headers
 }
 \examples{
+table <- new_SimplePlotTable(mtcars)
+
 # Print row headers in bold
 table <- set_row_header_style(table, face="bold")
 
 # Set headers to flush right
-table <- set_row_header-style(table, hjust=1)
+table <- set_row_header_style(table, hjust=1)
 }

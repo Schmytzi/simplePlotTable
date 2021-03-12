@@ -5,8 +5,6 @@
 #' @return A ggplot text geom representing the data
 #'
 #' @export
-#' @examples
-#' create_geom(table)
 create_geom <- function(table){
   stopifnot(is.SimplePlotTable(table))
   mappings <- list(x="column", y="rev(row)", label = "text")
@@ -25,8 +23,6 @@ create_geom <- function(table){
 #' You can hide headers if desired.
 #'
 #' @param table The SimplePlotTable to plot
-#' @param col_headers Logical indicating whether column headers should be shown (default: TRUE)
-#' @param row_headers Logical indicating whether row headers should be shown (default: TRUE)
 #'
 #' @return A ggplot object containing the table
 #'
@@ -36,16 +32,11 @@ create_geom <- function(table){
 #'
 #' @export
 #'
+#' @importFrom ggplot2 autoplot
 #'
 #' @examples
-#' # Plot with all headers
-#' create_plot(table)
-#'
-#' # Plot column headers only
-#' create_plot(table, T, F)
-#'
-#' # Plot without headers
-#' create_plot(table, F, F)
+#' table <- new_SimplePlotTable(mtcars)
+#' autoplot(table)
 autoplot.SimplePlotTable <- function(table) {
   stopifnot(is.SimplePlotTable(table))
   plot <- ggplot2::ggplot() +
@@ -68,3 +59,6 @@ autoplot.SimplePlotTable <- function(table) {
   }
   plot
 }
+
+#' @export
+ggplot2::autoplot

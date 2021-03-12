@@ -15,6 +15,3 @@ The transformed data, with columns row, col and text
 \description{
 Converts a data.frame to long format with indexes
 }
-\examples{
-long_data <- prepare_data(mtcars)
-}

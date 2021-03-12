@@ -2,10 +2,12 @@
 
 S3method(autoplot,SimplePlotTable)
 export("%>%")
+export(autoplot)
 export(create_geom)
 export(is.SimplePlotTable)
 export(new_SimplePlotTable)
 export(set_column_header_style)
 export(set_row_header_style)
 export(set_style)
+importFrom(ggplot2,autoplot)
 importFrom(magrittr,"%>%")

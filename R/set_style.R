@@ -17,6 +17,9 @@
 #' @export
 #'
 #' @examples
+#'
+#' table <- new_SimplePlotTable(mtcars)
+#'
 #' # Make all cells blue
 #' table <- set_style(table, col="blue")
 #'
@@ -47,13 +50,17 @@ set_style <- function(table, rows=1:table$nrow, cols=1:table$ncol, ...) {
 #' @export
 #'
 #' @examples
+#'
+#' table <- new_SimplePlotTable(mtcars)
+#'
 #' # Print column headers in bold
 #' table <- set_column_header_style(table, face="bold")
 #'
 #' # Set headers to flush right
-#' table <- set_column_header-style(table, hjust=1)
+#' table <- set_column_header_style(table, hjust=1)
 set_column_header_style <- function(table, ...){
   table$colstyle <- list(...)
+  table
 }
 
 #' Set the appearance of the row headers
@@ -65,11 +72,14 @@ set_column_header_style <- function(table, ...){
 #' @export
 #'
 #' @examples
+#' table <- new_SimplePlotTable(mtcars)
+#'
 #' # Print row headers in bold
 #' table <- set_row_header_style(table, face="bold")
 #'
 #' # Set headers to flush right
-#' table <- set_row_header-style(table, hjust=1)
+#' table <- set_row_header_style(table, hjust=1)
 set_row_header_style <- function(table, ...){
   table$rowstyle <- list(...)
+  table
 }

@@ -4,7 +4,7 @@
 #'
 #' @return Modified SimplePlotTable with data and styles
 add_defaults <- function(table){
-  defaults <- geom_text()$geom$default_aes
+  defaults <- ggplot2::geom_text()$geom$default_aes
   # The default aes is a list with class uneval.
   # We have to remove the class or else R complains about impossible coercion.
   class(defaults) <- NULL
