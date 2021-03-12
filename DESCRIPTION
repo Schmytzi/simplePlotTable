@@ -1,14 +1,16 @@
 Package: simplePlotTable
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Easily Alignable Tables in ggplot2
 Version: 0.3.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: person("Daniel", "Schmitz", email="daniel.schmitz@igp.uu.se", role=c("aut", "cre"))
+Maintainer: Daniel Schmitz <daniel.schmitz@igp.uu.se>
+Description: Draws tables using ggplot2's text geom with minimal styling.
+  This allows them to be easily aligned to other plots.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     ggplot2,
     tidyr
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)

@@ -1,3 +1,11 @@
+#' Create a table's text geom
+#'
+#' @param long_data The data component of the table object
+#'
+#' @return A ggplot text geom representing the data
+#'
+#' @examples
+#' create_geom(table$data)
 create_geom <- function(long_data){
   mappings <- list(x="col", y="rev(row)", label = "text")
   style_attributes <- colnames(long_data)[-(1:3)]
@@ -9,7 +17,34 @@ create_geom <- function(long_data){
 }
 
 
-create_plot <- function(table, col_headers = TRUE, row_headers = TRUE) {
+#' Plot a SimplePlotTable
+#'
+#' Creates a plot from the given SimplePlotTable using void theme.
+#' You can hide headers if desired.
+#'
+#' @param table The SimplePlotTable to plot
+#' @param col_headers Logical indicating whether column headers should be shown (default: TRUE)
+#' @param row_headers Logical indicating whether row headers should be shown (default: TRUE)
+#'
+#' @return A ggplot object containing the table
+#'
+#' @details You can apply all functions to the result that you would use if ordinary plots from ggplot.
+#'   The column and row headers are drawn as labels on the x and y axis, respectively.
+#'   You can change their appearance using [ggplot2::theme()].
+#'
+#' @export
+#'
+#'
+#' @examples
+#' # Plot with all headers
+#' create_plot(table)
+#'
+#' # Plot column headers only
+#' create_plot(table, T, F)
+#'
+#' # Plot without headers
+#' create_plot(table, F, F)
+plot.SimplePlotTable <- function(table, col_headers = TRUE, row_headers = TRUE) {
   stopifnot(is.SimplePlotTable(table))
   plot <- ggplot2::ggplot() +
     create_geom(table$data) +
