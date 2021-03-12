@@ -23,7 +23,7 @@ Allows you to set the visual appearance of single cells or ranges in a table
 }
 \details{
 This function allows for styling of cells in a SimplePlotTable.
-The cells to be changed are identified by \code{rows} and \col{cols}.
+The cells to be changed are identified by \code{rows} and \code{cols}.
 Every cell that is in any of the rows and any of the columns specified is changed.
 }
 \examples{
