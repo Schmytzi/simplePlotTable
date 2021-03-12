@@ -56,10 +56,12 @@ autoplot.SimplePlotTable <- function(table) {
     ggplot2::scale_y_continuous(labels=rev(table$rows),
                                 breaks=1:length(table$rows))
   if (!is.null(table$cols)) {
-    plot <- plot + ggplot2::theme(axis.text.x = ggplot2::element_text(face="bold"))
+    text_element <- do.call(ggplot2::element_text, table$colstyle)
+    plot <- plot + ggplot2::theme(axis.text.x = text_element)
   }
   if (!is.null(table$rows)) {
-    plot <- plot + ggplot2::theme(axis.text.y = ggplot2::element_text(face="bold"))
+    text_element <- do.call(ggplot2::element_text, table$rowstyle)
+    plot <- plot + ggplot2::theme(axis.text.y = text_element)
   }
   plot
 }
