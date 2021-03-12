@@ -4,7 +4,7 @@
 \alias{set_style}
 \title{Change the appearance of cells in a table}
 \usage{
-set_style(table, rows = 1:length(table$rows), cols = 1:length(table$cols), ...)
+set_style(table, rows = 1:table$nrow, cols = 1:table$ncol, ...)
 }
 \arguments{
 \item{table}{The SimplePlotTable to change}

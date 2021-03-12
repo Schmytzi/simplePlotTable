@@ -16,8 +16,11 @@ new_SimplePlotTable <- function(data, col_names = colnames(data), row_names = ro
   stopifnot(is.data.frame(data))
   stopifnot(is.null(col_names) || length(col_names) == ncol(data))
   stopifnot(is.null(row_names) || length(row_names) == nrow(data))
-
-  table <- list(data= prepare_data(data), cols <- col_names, rows <- row_names)
+  table <- list(data= prepare_data(data),
+                cols = col_names,
+                rows = row_names,
+                ncol = ncal(data),
+                nrow = nrow(data))
   class(table) <- "SimplePlotTable"
   table
 }
