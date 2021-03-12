@@ -8,6 +8,8 @@
 #' @return A new SimplePlotTaböe
 #' @export
 #'
+#' @importFrom magrittr %>%
+#'
 #' @examples
 #' new_SimplePlotTable(mtcars)
 #'
