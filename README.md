@@ -10,18 +10,6 @@ I want to keep styling options to a minimum (i.e. aesthetics available to `geom_
 
 ## Installation
 
-You can install the released version of simplePlotTable from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("simplePlotTable")
-```
 
 ## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(simplePlotTable)
-## basic example code
-```
-
+ 
