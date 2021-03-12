@@ -10,7 +10,9 @@ add_defaults <- function(table){
   class(defaults) <- NULL
   # Font Face is weird
   defaults$fontface <- "plain"
-  table$data <- data.frame(table$data, defaults)
+  # Alpha should be 1
+  defaults$alpha <- 1.0
+  table$style <- data.frame(table$data[, c("row", "column")], defaults)
   table$colstyle <- table$rowstyle <- list(face="bold")
   table
 }

@@ -1,18 +1,19 @@
 #' Create a table's text geom
 #'
-#' @param long_data The data component of the table object
+#' @param table The table object
 #'
 #' @return A ggplot text geom representing the data
 #'
 #' @export
 #' @examples
-#' create_geom(table$data)
-create_geom <- function(long_data){
-  mappings <- list(x="col", y="rev(row)", label = "text")
-  style_attributes <- colnames(long_data)[-(1:3)]
+#' create_geom(table)
+create_geom <- function(table){
+  stopifnot(is.SimplePlotTable(table))
+  mappings <- list(x="column", y="rev(row)", label = "text")
+  style_attributes <- colnames(table$style)[-(1:2)]
   mappings[style_attributes] <- style_attributes
   ggplot2::geom_text(
-    data=long_data,
+    data=merge(table$data, table$style, by=c("row", "column")),
     mapping=do.call(ggplot2::aes_string, mappings)
   )
 }
@@ -48,7 +49,7 @@ create_geom <- function(long_data){
 autoplot.SimplePlotTable <- function(table) {
   stopifnot(is.SimplePlotTable(table))
   plot <- ggplot2::ggplot() +
-    create_geom(table$data) +
+    create_geom(table) +
     ggplot2::theme_void()  +
     ggplot2::scale_x_continuous(position="top",
                               labels=table$cols,
