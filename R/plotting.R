@@ -7,13 +7,13 @@
 #' @export
 create_geom <- function(table){
   stopifnot(is.SimplePlotTable(table))
-  mappings <- list(x="column", y="rev(row)", label = "text")
+  mappings <- list(x="column", y="row", label = "text")
   style_attributes <- colnames(table$style)[-(1:2)]
   mappings[style_attributes] <- style_attributes
   # Convert coordinates to factor so we can use them for a discrete scale
   # Continuous scales are bad for alignment
   plot_data <- merge(table$data, table$style, by=c("row", "column"))
-  plot_data$row <- factor(rev(plot_data$row), levels=unique(rev(plot_data$row)))
+  plot_data$row <- factor(plot_data$row, levels=table$nrow:1)
   plot_data$column <- factor(plot_data$column, levels=unique(plot_data$column))
   ggplot2::geom_text(
     data=plot_data,
