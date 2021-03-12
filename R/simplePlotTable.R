@@ -21,8 +21,9 @@ new_SimplePlotTable <- function(data, col_names = colnames(data), row_names = ro
   table <- list(data= prepare_data(data),
                 cols = col_names,
                 rows = row_names,
-                ncol = ncal(data),
-                nrow = nrow(data))
+                ncol = ncol(data),
+                nrow = nrow(data)) %>%
+    add_defaults()
   class(table) <- "SimplePlotTable"
   table
 }
