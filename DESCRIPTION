@@ -1,7 +1,7 @@
 Package: simplePlotTable
 Type: Package
 Title: Easily Alignable Tables in ggplot2
-Version: 0.3.0
+Version: 1.0.0
 Author: person("Daniel", "Schmitz", email="daniel.schmitz@igp.uu.se", role=c("aut", "cre"))
 Maintainer: Daniel Schmitz <daniel.schmitz@igp.uu.se>
 Description: Draws tables using ggplot2's text geom with minimal styling.
