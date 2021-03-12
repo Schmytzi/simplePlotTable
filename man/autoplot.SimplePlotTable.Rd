@@ -4,7 +4,7 @@
 \alias{autoplot.SimplePlotTable}
 \title{Plot a SimplePlotTable}
 \usage{
-\method{autoplot}{SimplePlotTable}(table, col_headers = TRUE, row_headers = TRUE)
+\method{autoplot}{SimplePlotTable}(table)
 }
 \arguments{
 \item{table}{The SimplePlotTable to plot}

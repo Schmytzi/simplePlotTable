@@ -37,3 +37,39 @@ set_style <- function(table, rows=1:length(table$rows), cols=1:length(table$cols
   }
   table
 }
+
+#' Set the appearance of the column headers
+#'
+#' @param table The table to modify
+#' @param ... Styling options for the text, passed to [ggplot2::element_text()]
+#'
+#' @return The modified table
+#' @export
+#'
+#' @examples
+#' # Print column headers in bold
+#' table <- set_column_header_style(table, face="bold")
+#'
+#' # Set headers to flush right
+#' table <- set_column_header-style(table, hjust=1)
+set_column_header_style <- function(table, ...){
+  table$colstyle <- list(...)
+}
+
+#' Set the appearance of the row headers
+#'
+#' @param table The table to modify
+#' @param ... Styling options for the text, passed to [ggplot2::element_text()]
+#'
+#' @return The modified table
+#' @export
+#'
+#' @examples
+#' # Print row headers in bold
+#' table <- set_row_header_style(table, face="bold")
+#'
+#' # Set headers to flush right
+#' table <- set_row_header-style(table, hjust=1)
+set_row_header_style <- function(table, ...){
+  table$rowstyle <- list(...)
+}
