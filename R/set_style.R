@@ -30,7 +30,7 @@
 #' table <- set_style(table, rows=2:8, cols=2:5, fontface="bold")
 set_style <- function(table, rows=1:table$nrow, cols=1:table$ncol, ...) {
   stopifnot(is.SimplePlotTable(table))
-  cell_indexes <- which(table$data$row %in% rows & table$data$col %in% cols)
+  cell_indexes <- which(table$data$row %in% rows & table$data$column %in% cols)
   styles <- list(...)
   for (attribute in names(styles)){
     table$style[cell_indexes, attribute] <- styles[[attribute]]

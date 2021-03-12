@@ -55,7 +55,9 @@ autoplot.SimplePlotTable <- function(table) {
                               labels=table$cols,
                               breaks=1:length(table$cols)) +
     ggplot2::scale_y_continuous(labels=rev(table$rows),
-                                breaks=1:length(table$rows))
+                                breaks=1:length(table$rows)) +
+    ggplot2::scale_continuous_identity(c("size", "alpha", "angle")) +
+    ggplot2::scale_discrete_identity(c("colour", "fontface", "family"))
   if (!is.null(table$cols)) {
     text_element <- do.call(ggplot2::element_text, table$colstyle)
     plot <- plot + ggplot2::theme(axis.text.x = text_element)
