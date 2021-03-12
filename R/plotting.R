@@ -13,7 +13,7 @@ create_plot <- function(table, col_headers = TRUE, row_headers = TRUE) {
   stopifnot(is.SimplePlotTable(table))
   plot <- ggplot2::ggplot() +
     create_geom(table$data) +
-    theme_void()  +
+    ggplot2::theme_void()  +
     ggplot2::scale_x_continuous(position="top",
                               labels=table$cols,
                               breaks=1:length(table$cols)) +
