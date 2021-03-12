@@ -4,6 +4,7 @@
 #'
 #' @return A ggplot text geom representing the data
 #'
+#' @export
 #' @examples
 #' create_geom(table$data)
 create_geom <- function(long_data){
@@ -44,7 +45,7 @@ create_geom <- function(long_data){
 #'
 #' # Plot without headers
 #' create_plot(table, F, F)
-plot.SimplePlotTable <- function(table, col_headers = TRUE, row_headers = TRUE) {
+autoplot.SimplePlotTable <- function(table) {
   stopifnot(is.SimplePlotTable(table))
   plot <- ggplot2::ggplot() +
     create_geom(table$data) +
@@ -54,10 +55,10 @@ plot.SimplePlotTable <- function(table, col_headers = TRUE, row_headers = TRUE) 
                               breaks=1:length(table$cols)) +
     ggplot2::scale_y_continuous(labels=rev(table$rows),
                                 breaks=1:length(table$rows))
-  if (col_headers) {
+  if (!is.null(table$cols)) {
     plot <- plot + ggplot2::theme(axis.text.x = ggplot2::element_text(face="bold"))
   }
-  if (row_headers) {
+  if (!is.null(table$rows)) {
     plot <- plot + ggplot2::theme(axis.text.y = ggplot2::element_text(face="bold"))
   }
   plot
