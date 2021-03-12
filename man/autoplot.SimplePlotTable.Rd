@@ -4,10 +4,12 @@
 \alias{autoplot.SimplePlotTable}
 \title{Plot a SimplePlotTable}
 \usage{
-\method{autoplot}{SimplePlotTable}(table)
+\method{autoplot}{SimplePlotTable}(object, ...)
 }
 \arguments{
-\item{table}{The SimplePlotTable to plot}
+\item{object}{The SimplePlotTable to plot}
+
+\item{...}{Required to override \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}, ignored for now.}
 }
 \value{
 A ggplot object containing the table

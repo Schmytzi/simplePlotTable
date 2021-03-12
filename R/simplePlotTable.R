@@ -16,8 +16,8 @@
 #' renamed_table <- new_SimplePlotTable(mtcars[, c("mpg", "cyl")], col_names=c("Miles/gallon", "Cylinders))
 new_SimplePlotTable <- function(data, col_names = colnames(data), row_names = rownames(data)){
   stopifnot(is.data.frame(data))
-  stopifnot(is.null(col_names) || length(col_names) == ncol(data))
-  stopifnot(is.null(row_names) || length(row_names) == nrow(data))
+  stopifnot(is.null(col_names) || length(col_names) == ncol(data))
+  stopifnot(is.null(row_names) || length(row_names) == nrow(data))
   table <- list(data= prepare_data(data),
                 cols = col_names,
                 rows = row_names,

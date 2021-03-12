@@ -22,7 +22,8 @@ create_geom <- function(table){
 #' Creates a plot from the given SimplePlotTable using void theme.
 #' You can hide headers if desired.
 #'
-#' @param table The SimplePlotTable to plot
+#' @param object The SimplePlotTable to plot
+#' @param ... Required to override [ggplot2::autoplot()], ignored for now.
 #'
 #' @return A ggplot object containing the table
 #'
@@ -37,24 +38,24 @@ create_geom <- function(table){
 #' @examples
 #' table <- new_SimplePlotTable(mtcars)
 #' autoplot(table)
-autoplot.SimplePlotTable <- function(table) {
-  stopifnot(is.SimplePlotTable(table))
+autoplot.SimplePlotTable <- function(object, ...) {
+  stopifnot(is.SimplePlotTable(object))
   plot <- ggplot2::ggplot() +
-    create_geom(table) +
+    create_geom(object) +
     ggplot2::theme_void()  +
     ggplot2::scale_x_continuous(position="top",
-                              labels=table$cols,
-                              breaks=1:length(table$cols)) +
-    ggplot2::scale_y_continuous(labels=rev(table$rows),
-                                breaks=1:length(table$rows)) +
+                              labels=object$cols,
+                              breaks=1:length(object$cols)) +
+    ggplot2::scale_y_continuous(labels=rev(object$rows),
+                                breaks=1:length(object$rows)) +
     ggplot2::scale_continuous_identity(c("size", "alpha", "angle")) +
     ggplot2::scale_discrete_identity(c("colour", "fontface", "family"))
-  if (!is.null(table$cols)) {
-    text_element <- do.call(ggplot2::element_text, table$colstyle)
+  if (!is.null(object$cols)) {
+    text_element <- do.call(ggplot2::element_text, object$colstyle)
     plot <- plot + ggplot2::theme(axis.text.x = text_element)
   }
-  if (!is.null(table$rows)) {
-    text_element <- do.call(ggplot2::element_text, table$rowstyle)
+  if (!is.null(object$rows)) {
+    text_element <- do.call(ggplot2::element_text, object$rowstyle)
     plot <- plot + ggplot2::theme(axis.text.y = text_element)
   }
   plot
