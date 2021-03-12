@@ -10,8 +10,13 @@ create_geom <- function(table){
   mappings <- list(x="column", y="rev(row)", label = "text")
   style_attributes <- colnames(table$style)[-(1:2)]
   mappings[style_attributes] <- style_attributes
+  # Convert coordinates to factor so we can use them for a discrete scale
+  # Continuous scales are bad for alignment
+  plot_data <- merge(table$data, table$style, by=c("row", "column"))
+  plot_data$row <- factor(rev(plot_data$row), levels=unique(rev(plot_data$row)))
+  plot_data$column <- factor(plot_data$column, levels=unique(plot_data$column))
   ggplot2::geom_text(
-    data=merge(table$data, table$style, by=c("row", "column")),
+    data=plot_data,
     mapping=do.call(ggplot2::aes_string, mappings)
   )
 }
@@ -43,11 +48,9 @@ autoplot.SimplePlotTable <- function(object, ...) {
   plot <- ggplot2::ggplot() +
     create_geom(object) +
     ggplot2::theme_void()  +
-    ggplot2::scale_x_continuous(position="top",
-                              labels=object$cols,
-                              breaks=1:length(object$cols)) +
-    ggplot2::scale_y_continuous(labels=rev(object$rows),
-                                breaks=1:length(object$rows)) +
+    ggplot2::scale_x_discrete(position="top",
+                              labels=object$cols) +
+    ggplot2::scale_y_discrete(labels=rev(object$rows)) +
     ggplot2::scale_continuous_identity(c("size", "alpha", "angle")) +
     ggplot2::scale_discrete_identity(c("colour", "fontface", "family"))
   if (!is.null(object$cols)) {
