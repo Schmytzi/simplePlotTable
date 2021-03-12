@@ -23,3 +23,10 @@ A new SimplePlotTaböe
 \description{
 Construct a new SimplePlotTable
 }
+\examples{
+table <- new_SimplePlotTable(mtcars)
+
+renamed_table <- new_SimplePlotTable(
+  mtcars[, c("mpg", "cyl")],
+  col_names=c("Miles/gallon", "Cylinders"))
+}

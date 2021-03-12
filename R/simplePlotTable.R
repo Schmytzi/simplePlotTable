@@ -13,7 +13,9 @@
 #' @examples
 #' table <- new_SimplePlotTable(mtcars)
 #'
-#' renamed_table <- new_SimplePlotTable(mtcars[, c("mpg", "cyl")], col_names=c("Miles/gallon", "Cylinders))
+#' renamed_table <- new_SimplePlotTable(
+#'   mtcars[, c("mpg", "cyl")],
+#'   col_names=c("Miles/gallon", "Cylinders"))
 new_SimplePlotTable <- function(data, col_names = colnames(data), row_names = rownames(data)){
   stopifnot(is.data.frame(data))
   stopifnot(is.null(col_names) || length(col_names) == ncol(data))
