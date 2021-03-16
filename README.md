@@ -33,7 +33,7 @@ tbl_plot <- autoplot(tbl)
 tbl_plot
 ```
 
-![Basic Output Example](img/plain.png)
+![Basic Output Example](man/img/plain.png)
 
 ### Styling
 ```{r}
@@ -48,7 +48,7 @@ tbl %>%
   autoplot()
 ```
 
-![Styling Example](img/styling.png)
+![Styling Example](man/img/styling.png)
 
 ### Alignment to Other Plots
 ```{r}
@@ -65,7 +65,7 @@ mpg_plot <- ggplot(data) +
   
 (tbl_plot | mpg_plot) + plot_layout(widths=c(1,3))
 ```
-![Alignment Example](img/alignment.png)
+![Alignment Example](man/img/alignment.png)
 
 ## Why?
 I found existing solutions, like gridExtra's tableGrob, too annoying to use,
