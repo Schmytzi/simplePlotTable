@@ -37,5 +37,5 @@ new_SimplePlotTable <- function(data, col_names = colnames(data), row_names = ro
 #' @return `TRUE` if the argument is a SimplePlotTable
 #' @export
 is.SimplePlotTable <- function(table) {
-  "SimplePlotTable" %in% class(table)
+  inherits(table, "SimplePlotTable")
 }
